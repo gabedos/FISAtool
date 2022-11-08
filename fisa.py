@@ -52,7 +52,7 @@ def results():
 
     # Create SPASS theory
     theory = generate_theory(surv, wire, radio, target, targetUS, recieve, sent, rep_le, consent, tres)
-    print(theory)
+    # print(theory)
 
     # Verify the theory
     result = spass_api(theory)
@@ -70,11 +70,12 @@ def results():
 def bool_process(val):
 
     if val == "T":
-        val = True
+        return True
     elif val == "F":
-        val = False
+        return False
     else:
         raise Exception("You messed up with input management")
+
 
 def spass_api(theory):
     return ""
