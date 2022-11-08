@@ -52,7 +52,7 @@ def results():
 
     # Create SPASS theory
     theory = generate_theory(surv, wire, radio, target, targetUS, recieve, sent, rep_le, consent, tres)
-    # print(theory)
+    print(theory)
 
     # Verify the theory
     result = spass_api(theory)

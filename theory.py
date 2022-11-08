@@ -120,7 +120,7 @@ formula(
         and(
             Surv(Device), USP(Person), Target(Person), REP_LE(Person)
             or(Wire(Contents), Radio(Contents)),
-            or(SentUS(Contents), RecieveUS(Contents)
+            or(SentUS(Contents), RecieveUS(Contents))
         ),
         ElectronicSurveilance()
     )
@@ -133,7 +133,7 @@ formula(
             Surv(Device),
             Wire(Contents),
             or(SentUS(Contents), RecieveUS(Contents)),
-            Consent(),
+            not(Consent()),
             % ACQ in US
             not(Tres(Contents))
         ),
@@ -160,7 +160,7 @@ formula(
         and(
             Surv(Device),
             % DEVICE IN THE US
-            not(Radio(Contents), Wire(Contents)),
+            not(or(Radio(Contents), Wire(Contents))),
             REP_LE(Contents)
         ),
         ElectronicSurveilance()
