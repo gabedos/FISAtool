@@ -92,10 +92,12 @@ list_of_symbols.
 functions[
 (Person, 0),
 (Contents, 0),
-(Device, 0)
+(Device, 0),
+(Aquisition, 0)
 ].
 
 predicates[
+(Intentional) % determine whether the acquisition is intentional
 (Surv, 1), % determine whether Device is a Surveillance Device
 (USP, 1), % determine whether the the target is a US Person
 (Target, 1), % determine the person is the target
@@ -106,7 +108,7 @@ predicates[
 (REP_LE, 1), % determine whether reasonable expectation of privacy for communication
 (Consent, 0), % determine whether any party have given consent
 (Tres, 1), % determine whether the communication is computer tresspassing
-(ElectronicSurveilance, 0) % determine whether inputs lead to electronic surveilance
+(ElectronicSurveillance, 0) % determine whether inputs lead to electronic surveilance
 ].
 end_of_list.
 """
@@ -122,7 +124,7 @@ formula(
             or(Wire(Contents), Radio(Contents)),
             or(SentUS(Contents), ReceiveUS(Contents))
         ),
-        ElectronicSurveilance
+        ElectronicSurveillance
     )
 ).
 
@@ -137,7 +139,7 @@ formula(
             % ACQ in US
             not(Tres(Contents))
         ),
-        ElectronicSurveilance
+        ElectronicSurveillance
     )
 ).
 
@@ -145,12 +147,13 @@ formula(
 formula(
     implies(
         and(
+            Intentional(Aquisition),
             Surv(Device),
             Radio(Contents),
             REP_LE(Contents),
             and(SentUS(Contents), ReceiveUS(Contents))
         ),
-        ElectronicSurveilance
+        ElectronicSurveillance
     )
 ).
 
@@ -163,7 +166,7 @@ formula(
             not(or(Radio(Contents), Wire(Contents))),
             REP_LE(Contents)
         ),
-        ElectronicSurveilance
+        ElectronicSurveillance
     )
 ).
 """
@@ -172,7 +175,7 @@ SPASS_CONJECTURE = """
 end_of_list.
 
 list_of_formulae(conjectures).
-% formula(ElectronicSurveilance).
+% formula(ElectronicSurveillance).
 end_of_list.
 
 end_problem.
