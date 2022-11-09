@@ -24,7 +24,7 @@ def results():
     comm = request.args.get('comm')
     target = request.args.get('target')
     targetUS = request.args.get('targetUS')
-    recieve = request.args.get('recieve')
+    receive = request.args.get('receive')
     sent = request.args.get('sent')
     rep_le = request.args.get('rep_le')
     consent = request.args.get('consent')
@@ -44,14 +44,14 @@ def results():
     surv = bool_process(surv)
     target = bool_process(target)
     targetUS = bool_process(targetUS)
-    recieve = bool_process(recieve)
+    receive = bool_process(receive)
     sent = bool_process(sent)
     rep_le = bool_process(rep_le)
     consent = bool_process(consent)
     tres = bool_process(tres)
 
     # Create SPASS theory
-    theory = generate_theory(surv, wire, radio, target, targetUS, recieve, sent, rep_le, consent, tres)
+    theory = generate_theory(surv, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
     print(theory)
 
     # Verify the theory
