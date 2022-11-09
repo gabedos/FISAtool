@@ -99,6 +99,8 @@ functions[
 predicates[
 (Intentional) % determine whether the acquisition is intentional
 (Surv, 1), % determine whether Device is a Surveillance Device
+(Installation, 1), % determines whether device was installed
+(Use, 1), % determines whether the device was used
 (USP, 1), % determine whether the the target is a US Person
 (Target, 1), % determine the person is the target
 (Wire, 1), % determine whether communication via wire
