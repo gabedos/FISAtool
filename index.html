@@ -26,9 +26,18 @@
         <form action="results" method="get">
 
           <div class="p-2">
-            Surveilance Device
+            Acquisition
+            <select class="form-select" aria-label="Default select example" name="intent" required>
+              <option value="">Was the acquisition of information intentional?</option>
+              <option value="T">Yes</option>
+              <option value="F">No</option>
+            </select>
+          </div>
+
+          <div class="p-2">
+            Surveillance Device
             <select class="form-select" aria-label="Default select example" name="surv" required>
-              <option value="">What kind of surveiling device are you using?</option>
+              <option value="">What kind of surveilling device are you using?</option>
               <option value="T">Mechanical</option>
               <option value="T">Electronic</option>
               <option value="T">Other</option>
@@ -39,7 +48,7 @@
           <div class="p-2">
             Surveilance Device Location
             <select class="form-select" aria-label="Default select example" name="survUS" required>
-              <option value="">Is the device being installed/used in the US?</option>
+              <option value="">Is the device being installed/used in the US for monitoring purposes?</option>
               <option value="T">Yes</option>
               <option value="F">No</option>
               <option value="F">NA</option>

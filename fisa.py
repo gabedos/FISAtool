@@ -20,7 +20,9 @@ def index():
 def results():
 
     # Fetch arguements
+    intent = request.args.get('intent')
     surv = request.args.get('surv')
+    survUS = request.args.get('survUS')
     comm = request.args.get('comm')
     target = request.args.get('target')
     targetUS = request.args.get('targetUS')
@@ -41,7 +43,9 @@ def results():
         wire = False
         radio = False
 
+    intent = bool_process(intent)
     surv = bool_process(surv)
+    survUS = bool_process(survUS)
     target = bool_process(target)
     targetUS = bool_process(targetUS)
     receive = bool_process(receive)
@@ -51,7 +55,7 @@ def results():
     tres = bool_process(tres)
 
     # Create SPASS theory
-    theory = generate_theory(surv, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
+    theory = generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
     print(theory)
 
     # Verify the theory

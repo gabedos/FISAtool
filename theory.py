@@ -1,11 +1,13 @@
 """Handles theory creation"""
 
-def generate_theory(surv, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres):
+def generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres):
     """
     Generates the SPASS theory
 
     Args:
-        surv: surveilance devices is being used?
+        intent: intentional acquisition?
+        surv: surveillance devices is being used?
+        survUS: installed/used in the US for monitoring purposes?
         wire: wire communication is being surveiled?
         radio: radio communication is being surveiled?
         target: the person is the target (intentionally)?
@@ -23,10 +25,20 @@ def generate_theory(surv, wire, radio, target, targetUS, receive, sent, rep_le, 
 
     theory += ""
 
+    if intent:
+        theory += "formula(Intentional(Acquisition)).\n"
+    else:
+        theory += "formula(not(Intentional(Acquisition))).\n"
+
     if surv:
         theory += "formula(Surv(Device)).\n"
     else:
         theory += "formula(not(Surv(Device))).\n"
+
+    if survUS:
+        theory += "formula(Surv_US(Device)).\n"
+    else:
+        theory += "formula(not(Surv_US(Device))).\n"
 
     if wire:
         theory += "formula(Wire(Device)).\n"
@@ -97,10 +109,9 @@ functions[
 ].
 
 predicates[
-(Intentional) % determine whether the acquisition is intentional
+(Intentional, 1), % determine whether the acquisition is intentional
 (Surv, 1), % determine whether Device is a Surveillance Device
-(Installation, 1), % determines whether device was installed
-(Use, 1), % determines whether the device was used
+(Surv_US, 1), % determines whether device was installed/used for monitoring purposes in the U.S.
 (USP, 1), % determine whether the the target is a US Person
 (Target, 1), % determine the person is the target
 (Wire, 1), % determine whether communication via wire
@@ -153,7 +164,7 @@ formula(
             Surv(Device),
             Radio(Contents),
             REP_LE(Contents),
-            and(SentUS(Contents), ReceiveUS(Contents))
+            SentUS(Contents), ReceiveUS(Contents)
         ),
         ElectronicSurveillance
     )
@@ -163,6 +174,7 @@ formula(
 formula(
     implies(
         and(
+            Surv_US(Device),
             Surv(Device),
             % DEVICE IN THE US
             not(or(Radio(Contents), Wire(Contents))),
