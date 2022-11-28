@@ -4,6 +4,7 @@
 from flask import Flask, request, make_response, render_template
 from theory import generate_theory
 import sys
+import os
 
 app = Flask(__name__, template_folder='.')
 
@@ -57,15 +58,16 @@ def results():
 
     # Create SPASS theory
     theory = generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
-    with open('spass.txt', 'w') as sys.stdout:
-        print(theory)
+    with open('spass.txt', 'w') as file1:
+        file1.write(theory)
 
     # Verify the theory
-    result = spass_api()
+    spass_api()
+
 
     # Dispaly results
     html = render_template('results.html',
-        result=result
+        #result=result
     )
 
     response = make_response(html)
@@ -84,12 +86,12 @@ def bool_process(val):
 
 
 def spass_api():
-    sys.os("spass39/SPASS spass.txt > result.txt");
+    os.system("spass39/SPASS spass.txt > result.txt");
 
-    with open('result.txt', 'r') as file:
-        content = file.read()
+    with open('spass.txt', 'r') as file1:
+        content = file1.read()
 
-        if("Proof found" in content):
-            print("SUCCESS")
-        else:
-            print("FAIL")
+    if("Proof found" in content):
+        print("SUCCESS")
+    else:
+        print("FAIL")
