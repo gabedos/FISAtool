@@ -163,7 +163,7 @@ formula(
             Intentional(Acquisition),
             Surv(Device),
             Radio(Contents),
-            REP_LE(Contents),
+            REP_LE(Person),
             SentUS(Contents), ReceiveUS(Contents)
         ),
         ElectronicSurveillance
@@ -177,7 +177,7 @@ formula(
             Surv_US(Device),
             Surv(Device),
             not(or(Radio(Contents), Wire(Contents))),
-            REP_LE(Contents)
+            REP_LE(Person)
         ),
         ElectronicSurveillance
     )
