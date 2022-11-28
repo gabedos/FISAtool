@@ -18,7 +18,7 @@ def generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive
         consent: all parties have given consent to be surveiled?
         tres: the communication relates to computer trespassers
     """
-    
+
     theory = SPASS_HEADER
 
     theory += SPASS_FIXED_THEORY
@@ -95,7 +95,7 @@ begin_problem(fisa).
 
 list_of_descriptions.
 name({*Law Security Logic Project 2*}).
-author({*Gabriel Dos Santos (gnd6), Alice Ao (ava26) and Ben M ()*}).
+author({*Gabriel Dos Santos (gnd6), Alice Ao (ava26) and Ben M (bm746)*}).
 status(unsatisfiable).
 description({*Verifying FISA*}).
 end_of_list.
@@ -105,7 +105,7 @@ functions[
 (Person, 0),
 (Contents, 0),
 (Device, 0),
-(Aquisition, 0)
+(Acquisition, 0)
 ].
 
 predicates[
@@ -149,7 +149,7 @@ formula(
             Wire(Contents),
             or(SentUS(Contents), ReceiveUS(Contents)),
             not(Consent),
-            % ACQ in US
+            Surv_US(Device), %Acquisition
             not(Tres(Contents))
         ),
         ElectronicSurveillance
@@ -160,7 +160,7 @@ formula(
 formula(
     implies(
         and(
-            Intentional(Aquisition),
+            Intentional(Acquisition),
             Surv(Device),
             Radio(Contents),
             REP_LE(Contents),
@@ -176,7 +176,6 @@ formula(
         and(
             Surv_US(Device),
             Surv(Device),
-            % DEVICE IN THE US
             not(or(Radio(Contents), Wire(Contents))),
             REP_LE(Contents)
         ),

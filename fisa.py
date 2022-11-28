@@ -61,7 +61,7 @@ def results():
         print(theory)
 
     # Verify the theory
-    result = spass_api(theory)
+    result = spass_api()
 
     # Dispaly results
     html = render_template('results.html',
@@ -83,5 +83,13 @@ def bool_process(val):
         raise Exception("You messed up with input management")
 
 
-def spass_api(theory):
-    return ""
+def spass_api():
+    sys.os("spass39/SPASS spass.txt > result.txt");
+
+    with open('result.txt', 'r') as file:
+        content = file.read()
+
+        if("Proof found" in content):
+            print("SUCCESS")
+        else:
+            print("FAIL")
