@@ -40,7 +40,7 @@ def results():
         radio = False
     elif comm == "Radio":
         wire = False
-        radio = False
+        radio = True
     else:
         wire = False
         radio = False
