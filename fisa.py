@@ -21,7 +21,7 @@ def index():
 @app.route('/results', methods=['GET'])
 def results():
 
-    # Fetch arguements
+    # Fetch arguments
     intent = request.args.get('intent')
     surv = request.args.get('surv')
     survUS = request.args.get('survUS')
