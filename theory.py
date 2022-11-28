@@ -41,14 +41,14 @@ def generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive
         theory += "formula(not(Surv_US(Device))).\n"
 
     if wire:
-        theory += "formula(Wire(Device)).\n"
+        theory += "formula(Wire(Contents)).\n"
     else:
-        theory += "formula(not(Wire(Device))).\n"
+        theory += "formula(not(Wire(Contents))).\n"
 
     if radio:
-        theory += "formula(Radio(Device)).\n"
+        theory += "formula(Radio(Contents)).\n"
     else:
-        theory += "formula(not(Radio(Device))).\n"
+        theory += "formula(not(Radio(Contents))).\n"
 
     if target:
         theory += "formula(Target(Person)).\n"

@@ -13,7 +13,7 @@ functions[
 (Person, 0),
 (Contents, 0),
 (Device, 0),
-(Aquisition, 0)
+(Acquisition, 0)
 ].
 
 predicates[
@@ -66,7 +66,7 @@ formula(
 formula(
     implies(
         and(
-            Intentional(Aquisition),
+            Intentional(Acquisition),
             Surv(Device),
             Radio(Contents),
             REP_LE(Contents),
@@ -89,18 +89,18 @@ formula(
         ElectronicSurveillance
     )
 ).
-formula(Intentional(Acquisition)).
+formula(not(Intentional(Acquisition))).
 formula(Surv(Device)).
-formula(Surv_US(Device)).
+formula(not(Surv_US(Device))).
 formula(Wire(Device)).
 formula(not(Radio(Device))).
 formula(Target(Person)).
 formula(USP(Person)).
 formula(ReceiveUS(Contents)).
-formula(SentUS(Contents)).
+formula(not(SentUS(Contents))).
 formula(REP_LE(Person)).
-formula(not(Consent)).
-formula(Tres(Contents)).
+formula(Consent).
+formula(not(Tres(Contents))).
 
 end_of_list.
 
