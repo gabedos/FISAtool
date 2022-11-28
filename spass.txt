@@ -1,0 +1,112 @@
+
+begin_problem(fisa).
+
+list_of_descriptions.
+name({*Law Security Logic Project 2*}).
+author({*Gabriel Dos Santos (gnd6), Alice Ao (ava26) and Ben M ()*}).
+status(unsatisfiable).
+description({*Verifying FISA*}).
+end_of_list.
+
+list_of_symbols.
+functions[
+(Person, 0),
+(Contents, 0),
+(Device, 0),
+(Aquisition, 0)
+].
+
+predicates[
+(Intentional, 1), % determine whether the acquisition is intentional
+(Surv, 1), % determine whether Device is a Surveillance Device
+(Surv_US, 1), % determines whether device was installed/used for monitoring purposes in the U.S.
+(USP, 1), % determine whether the the target is a US Person
+(Target, 1), % determine the person is the target
+(Wire, 1), % determine whether communication via wire
+(Radio, 1), % determine whether communication via radio
+(SentUS, 1), % determine whether communication sent from the US
+(ReceiveUS, 1), % determine whether communication received in the US
+(REP_LE, 1), % determine whether reasonable expectation of privacy for communication
+(Consent, 0), % determine whether any party have given consent
+(Tres, 1), % determine whether the communication is computer tresspassing
+(ElectronicSurveillance, 0) % determine whether inputs lead to electronic surveilance
+].
+end_of_list.
+
+list_of_formulae(axioms).
+
+% FISA S 1801 f1
+formula(
+    implies(
+        and(
+            Surv(Device), USP(Person), Target(Person), REP_LE(Person),
+            or(Wire(Contents), Radio(Contents)),
+            or(SentUS(Contents), ReceiveUS(Contents))
+        ),
+        ElectronicSurveillance
+    )
+).
+
+% FISA S 1801 f2
+formula(
+    implies(
+        and(
+            Surv(Device),
+            Wire(Contents),
+            or(SentUS(Contents), ReceiveUS(Contents)),
+            not(Consent),
+            % ACQ in US
+            not(Tres(Contents))
+        ),
+        ElectronicSurveillance
+    )
+).
+
+% FISA S 1801 f3
+formula(
+    implies(
+        and(
+            Intentional(Aquisition),
+            Surv(Device),
+            Radio(Contents),
+            REP_LE(Contents),
+            SentUS(Contents), ReceiveUS(Contents)
+        ),
+        ElectronicSurveillance
+    )
+).
+
+% FISA S 1801 f4
+formula(
+    implies(
+        and(
+            Surv_US(Device),
+            Surv(Device),
+            % DEVICE IN THE US
+            not(or(Radio(Contents), Wire(Contents))),
+            REP_LE(Contents)
+        ),
+        ElectronicSurveillance
+    )
+).
+formula(Intentional(Acquisition)).
+formula(Surv(Device)).
+formula(Surv_US(Device)).
+formula(Wire(Device)).
+formula(not(Radio(Device))).
+formula(Target(Person)).
+formula(USP(Person)).
+formula(ReceiveUS(Contents)).
+formula(SentUS(Contents)).
+formula(REP_LE(Person)).
+formula(not(Consent)).
+formula(Tres(Contents)).
+
+end_of_list.
+
+list_of_formulae(conjectures).
+% formula(ElectronicSurveillance).
+end_of_list.
+
+end_problem.
+

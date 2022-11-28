@@ -3,6 +3,7 @@
 
 from flask import Flask, request, make_response, render_template
 from theory import generate_theory
+import sys
 
 app = Flask(__name__, template_folder='.')
 
@@ -56,7 +57,8 @@ def results():
 
     # Create SPASS theory
     theory = generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
-    print(theory)
+    with open('spass.txt', 'w') as sys.stdout:
+        print(theory)
 
     # Verify the theory
     result = spass_api(theory)
