@@ -1,0 +1,40 @@
+
+	          spass39/SPASS V 3.9
+	       Usage: SPASS [options] [<input-file>] 
+
+Possible options:
+
+Auto               Stdin              Interactive        Flotter            
+SOS                Splits             SplitMinInst       Memory             
+TimeLimit          DocSST             DocProof           DocSplit           
+Loops              PSub               PRew               PCon               
+PTaut              PObv               PSSi               PSST               
+PMRR               PUnC               PAED               PDer               
+PGiven             PLabels            PKept              PProblem           
+PEmptyClause       PStatistic         FPModel            FPFCR              
+FPDFGProof         PFlags             POptSkolem         PStrSkolem         
+PBDC               PBInc              PApplyDefs         Select             
+RInput             Sorts              SatInput           WDRatio            
+PrefCon            FullRed            FuncWeight         VarWeight          
+PrefVar            BoundMode          BoundStart         BoundLoops         
+ApplyDefs          Ordering           CNFQuantExch       CNFOptSkolem       
+CNFStrSkolem       CNFProofSteps      CNFSub             CNFCon             
+CNFRedTimeLimit    CNFRenaming        CNFRenMatch        CNFPRenaming       
+CNFFEqR            IEmS               ISoR               IEqR               
+IERR               IEqF               IMPm               ISpR               
+IOPm               ISPm               ISpL               IORe               
+ISRe               ISHy               IOHy               IURR               
+IOFc               ISFc               IUnR               IBUR               
+IDEF               Trans              IChain             ICompRes           
+TransWeight        RFRew              RBRew              RFMRR              
+RBMRR              RObv               RUnC               RTer               
+RTaut              RSST               RSSi               RFSub              
+RBSub              RAED               RCon               TDfg2OtterOptions  
+EML                EMLAuto            EMLTranslation     EML2Rel            
+EMLTheory          EMLFuncNdeQ        EMLFuncNary        EMLFFSorts         
+EMLElimComp        EMLPTrans          IncludePath        TPTP               
+rf                 
+
+
+PPWarn             
+
