@@ -91,15 +91,15 @@ formula(
 formula(Intentional(Acquisition)).
 formula(Surv(Device)).
 formula(Surv_US(Device)).
-formula(Wire(Contents)).
+formula(not(Wire(Contents))).
 formula(not(Radio(Contents))).
-formula(Target(Person)).
+formula(not(Target(Person))).
 formula(USP(Person)).
-formula(not(ReceiveUS(Contents))).
+formula(ReceiveUS(Contents)).
 formula(SentUS(Contents)).
 formula(REP_LE(Person)).
 formula(not(Consent)).
-formula(not(Tres(Contents))).
+formula(Tres(Contents)).
 
 end_of_list.
 
