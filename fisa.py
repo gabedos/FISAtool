@@ -58,16 +58,16 @@ def results():
 
     # Create SPASS theory
     theory = generate_theory(intent, surv, survUS, wire, radio, target, targetUS, receive, sent, rep_le, consent, tres)
+
     with open('spass.txt', 'w') as file1:
         file1.write(theory)
 
     # Verify the theory
-    spass_api()
-
+    result = spass_api()
 
     # Dispaly results
     html = render_template('results.html',
-        #result=result
+        result=result
     )
 
     response = make_response(html)
@@ -85,13 +85,20 @@ def bool_process(val):
         raise Exception("You messed up with input management")
 
 
-def spass_api():
-    os.system("spass39/SPASS spass.txt > result.txt");
+def spass_api() -> str:
+    """Runs spass on the theory and determines if conjecture is true"""
 
+    # Executes SPASS theory
+    os.system("spass39/SPASS spass.txt > result.txt")
+
+    # Reads the result
     with open('result.txt', 'r') as file1:
         content = file1.read()
     print(content)
+
+    # Return the result
     if("Proof found." in content):
         print("SUCCESS")
-    else:
-        print("FAIL")
+        return "True: The circumstances describe electornic surveillance under FISA"
+    print("FAIL")
+    return "False: The circumstances are not electornic surveillance under FISA"
