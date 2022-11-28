@@ -1,29 +1,30 @@
 
 --------------------------SPASS-START-----------------------------
 Input Problem:
-1[0:Inp] ||  -> Intentional(Acquisition)*.
-2[0:Inp] ||  -> Surv(Device)*.
-3[0:Inp] ||  -> Surv_US(Device)*.
-4[0:Inp] ||  -> Target(Person)*.
-5[0:Inp] ||  -> USP(Person)*.
-6[0:Inp] ||  -> ReceiveUS(Contents)*.
-7[0:Inp] ||  -> REP_LE(Person)*.
-8[0:Inp] || Consent* -> .
-9[0:Inp] || Wire(Contents)* -> .
-10[0:Inp] || Radio(Contents)* -> .
-11[0:Inp] || SentUS(Contents)* -> .
-12[0:Inp] || Tres(Contents)* -> .
-13[0:Inp] || Wire(Contents)* -> SkC0.
-14[0:Inp] || Radio(Contents)* -> SkC0.
-15[0:Inp] || Surv_US(Device) Surv(Device)* REP_LE(Contents) -> Radio(Contents) Wire(Contents) ElectronicSurveillance.
-16[0:Inp] || SentUS(Contents) Surv(Device)* Wire(Contents) Surv_US(Device) -> Consent Tres(Contents) ElectronicSurveillance.
-17[0:Inp] || ReceiveUS(Contents) Surv(Device)* Wire(Contents) Surv_US(Device) -> Consent Tres(Contents) ElectronicSurveillance.
-18[0:Inp] || SentUS(Contents) Surv(Device)* USP(Person) Target(Person) REP_LE(Person) SkC0 -> ElectronicSurveillance.
-19[0:Inp] || ReceiveUS(Contents) Surv(Device)* USP(Person) Target(Person) REP_LE(Person) SkC0 -> ElectronicSurveillance.
-20[0:Inp] || Intentional(Acquisition)* Surv(Device) Radio(Contents) REP_LE(Contents) SentUS(Contents) ReceiveUS(Contents) -> ElectronicSurveillance.
+1[0:Inp] || ElectronicSurveillance* -> .
+2[0:Inp] ||  -> Intentional(Acquisition)*.
+3[0:Inp] ||  -> Surv(Device)*.
+4[0:Inp] ||  -> Surv_US(Device)*.
+5[0:Inp] ||  -> Wire(Contents)*.
+6[0:Inp] ||  -> Target(Person)*.
+7[0:Inp] ||  -> USP(Person)*.
+8[0:Inp] ||  -> SentUS(Contents)*.
+9[0:Inp] ||  -> REP_LE(Person)*.
+10[0:Inp] || Consent* -> .
+11[0:Inp] || Radio(Contents)* -> .
+12[0:Inp] || ReceiveUS(Contents)* -> .
+13[0:Inp] || Tres(Contents)* -> .
+14[0:Inp] || Wire(Contents)* -> SkC0.
+15[0:Inp] || Radio(Contents)* -> SkC0.
+16[0:Inp] || Surv_US(Device) Surv(Device)* REP_LE(Contents) -> Radio(Contents) Wire(Contents) ElectronicSurveillance.
+17[0:Inp] || SentUS(Contents) Surv(Device)* Wire(Contents) Surv_US(Device) -> Consent Tres(Contents) ElectronicSurveillance.
+18[0:Inp] || ReceiveUS(Contents) Surv(Device)* Wire(Contents) Surv_US(Device) -> Consent Tres(Contents) ElectronicSurveillance.
+19[0:Inp] || SentUS(Contents) Surv(Device)* USP(Person) Target(Person) REP_LE(Person) SkC0 -> ElectronicSurveillance.
+20[0:Inp] || ReceiveUS(Contents) Surv(Device)* USP(Person) Target(Person) REP_LE(Person) SkC0 -> ElectronicSurveillance.
+21[0:Inp] || Intentional(Acquisition)* Surv(Device) Radio(Contents) REP_LE(Contents) SentUS(Contents) ReceiveUS(Contents) -> ElectronicSurveillance.
  This is a propositional Non-Horn problem.
- The following monadic predicates have finite extensions: REP_LE, ReceiveUS, USP, Target, Surv_US, Surv, Intentional.
- Axiom clauses: 20 Conjecture clauses: 0
+ The following monadic predicates have finite extensions: REP_LE, SentUS, USP, Target, Surv_US, Surv, Intentional.
+ Axiom clauses: 20 Conjecture clauses: 1
  Inferences: 
  Reductions: RFMRR=1 RBMRR=1 RObv=1 RUnC=1 RTaut=1 RFSub=1 RBSub=1 
  Extras    : Input Saturation, Always Selection, Full Splitting, Full Reduction,  Ratio: 5, FuncWeight: 1, VarWeight: 1
@@ -34,39 +35,28 @@ Processed Problem:
 Worked Off Clauses:
 
 Usable Clauses:
-6[0:Inp] ||  -> ReceiveUS(Contents)*.
-5[0:Inp] ||  -> USP(Person)*.
-4[0:Inp] ||  -> Target(Person)*.
-3[0:Inp] ||  -> Surv_US(Device)*.
-2[0:Inp] ||  -> Surv(Device)*.
-1[0:Inp] ||  -> Intentional(Acquisition)*.
-7[0:Inp] ||  -> REP_LE(Person)*.
-8[0:Inp] || Consent* -> .
-12[0:Inp] || Tres(Contents)* -> .
-11[0:Inp] || SentUS(Contents)* -> .
-10[0:Inp] || Radio(Contents)* -> .
-9[0:Inp] || Wire(Contents)* -> .
-19[0:Inp] || SkC0 -> ElectronicSurveillance*.
-15[0:Inp] || REP_LE(Contents)* -> ElectronicSurveillance.
-	Given clause: 6[0:Inp] ||  -> ReceiveUS(Contents)*.
-	Given clause: 5[0:Inp] ||  -> USP(Person)*.
-	Given clause: 4[0:Inp] ||  -> Target(Person)*.
-	Given clause: 3[0:Inp] ||  -> Surv_US(Device)*.
-	Given clause: 2[0:Inp] ||  -> Surv(Device)*.
-	Given clause: 1[0:Inp] ||  -> Intentional(Acquisition)*.
-	Given clause: 7[0:Inp] ||  -> REP_LE(Person)*.
-	Given clause: 8[0:Inp] || Consent*+ -> .
-	Given clause: 12[0:Inp] || Tres(Contents)*+ -> .
-	Given clause: 11[0:Inp] || SentUS(Contents)*+ -> .
-	Given clause: 10[0:Inp] || Radio(Contents)*+ -> .
-	Given clause: 9[0:Inp] || Wire(Contents)*+ -> .
-	Given clause: 19[0:Inp] || SkC0+ -> ElectronicSurveillance*.
-	Given clause: 15[0:Inp] || REP_LE(Contents)*+ -> ElectronicSurveillance.
+14[0:Inp] ||  -> SkC0*.
+5[0:Inp] ||  -> Wire(Contents)*.
+4[0:Inp] ||  -> Surv_US(Device)*.
+2[0:Inp] ||  -> Intentional(Acquisition)*.
+8[0:Inp] ||  -> SentUS(Contents)*.
+7[0:Inp] ||  -> USP(Person)*.
+6[0:Inp] ||  -> Target(Person)*.
+9[0:Inp] ||  -> REP_LE(Person)*.
+3[0:Inp] ||  -> Surv(Device)*.
+10[0:Inp] || Consent* -> .
+1[0:Inp] || ElectronicSurveillance* -> .
+13[0:Inp] || Tres(Contents)* -> .
+11[0:Inp] || Radio(Contents)* -> .
+12[0:Inp] || ReceiveUS(Contents)* -> .
+20[0:Inp] || SkC0 REP_LE(Person) Target(Person) USP(Person) Surv(Device)* ReceiveUS(Contents) -> ElectronicSurveillance.
+19[0:Inp] || SkC0 REP_LE(Person) Target(Person) USP(Person) Surv(Device)* SentUS(Contents) -> ElectronicSurveillance.
+21[0:Inp] || ReceiveUS(Contents) SentUS(Contents) REP_LE(Contents) Radio(Contents) Surv(Device) Intentional(Acquisition)* -> ElectronicSurveillance.
 SPASS V 3.9 
-SPASS beiseite: Completion found.
+SPASS beiseite: Proof found.
 Problem: spass.txt 
-SPASS derived 0 clauses, backtracked 0 clauses, performed 0 splits and kept 14 clauses.
-SPASS allocated 72631 KBytes.
+SPASS derived 0 clauses, backtracked 0 clauses, performed 0 splits and kept 15 clauses.
+SPASS allocated 72639 KBytes.
 SPASS spent	0:00:00.07 on the problem.
 		0:00:00.03 for the input.
 		0:00:00.02 for the FLOTTER CNF translation.

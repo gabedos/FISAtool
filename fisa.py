@@ -88,10 +88,10 @@ def bool_process(val):
 def spass_api():
     os.system("spass39/SPASS spass.txt > result.txt");
 
-    with open('spass.txt', 'r') as file1:
+    with open('result.txt', 'r') as file1:
         content = file1.read()
-
-    if("Proof found" in content):
+    print(content)
+    if("Proof found." in content):
         print("SUCCESS")
     else:
         print("FAIL")

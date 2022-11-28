@@ -91,12 +91,12 @@ formula(
 formula(Intentional(Acquisition)).
 formula(Surv(Device)).
 formula(Surv_US(Device)).
-formula(not(Wire(Contents))).
+formula(Wire(Contents)).
 formula(not(Radio(Contents))).
 formula(Target(Person)).
 formula(USP(Person)).
-formula(ReceiveUS(Contents)).
-formula(not(SentUS(Contents))).
+formula(not(ReceiveUS(Contents))).
+formula(SentUS(Contents)).
 formula(REP_LE(Person)).
 formula(not(Consent)).
 formula(not(Tres(Contents))).
@@ -104,7 +104,7 @@ formula(not(Tres(Contents))).
 end_of_list.
 
 list_of_formulae(conjectures).
-% formula(ElectronicSurveillance).
+formula(ElectronicSurveillance).
 end_of_list.
 
 end_problem.
