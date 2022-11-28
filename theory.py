@@ -188,7 +188,7 @@ SPASS_CONJECTURE = """
 end_of_list.
 
 list_of_formulae(conjectures).
-% formula(ElectronicSurveillance).
+formula(ElectronicSurveillance).
 end_of_list.
 
 end_problem.
