@@ -105,7 +105,7 @@ functions[
 (Person, 0),
 (Contents, 0),
 (Device, 0),
-(Aquisition, 0)
+(Acquisition, 0)
 ].
 
 predicates[
@@ -160,7 +160,7 @@ formula(
 formula(
     implies(
         and(
-            Intentional(Aquisition),
+            Intentional(Acquisition),
             Surv(Device),
             Radio(Contents),
             REP_LE(Contents),
