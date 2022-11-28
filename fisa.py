@@ -99,6 +99,6 @@ def spass_api() -> str:
     # Return the result
     if("Proof found." in content):
         print("SUCCESS")
-        return "True: The circumstances describe electornic surveillance under FISA"
+        return "True: The circumstances describe electronic surveillance under FISA"
     print("FAIL")
-    return "False: The circumstances are not electornic surveillance under FISA"
+    return "False: The circumstances are not electronic surveillance under FISA"
